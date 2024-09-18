@@ -2,12 +2,12 @@
 
 namespace Famdirksen\LaravelReferral\Contracts;
 
-use Famdirksen\LaravelReferral\Models\Referral;
-use Famdirksen\LaravelReferral\Models\ReferralAccount;
+use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
+use Famdirksen\LaravelReferral\Models\Indicacoes;
 
 interface HandleReferralContract
 {
-    public function toReferral(ReferralAccount $referralAccount): Referral;
+    public function toReferral(ContasIndicacoes $contasIndicacoes): Indicacoes;
 
     public function toReferralIfNeededBasedOnCookie(): void;
 }

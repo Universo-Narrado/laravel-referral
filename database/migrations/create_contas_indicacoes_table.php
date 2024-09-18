@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('referral_accounts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->morphs('referralable');
-            $table->string('name');
-            $table->string('token')->unique()->index();
+        Schema::create('contas_indicacoes', function (Blueprint $table) {
+            $table->bigIncrements('con_ind_id');
+            $table->morphs('con_ind');
+            $table->string('con_ind_nome');
+            $table->string('con_ind_codigo')->unique()->index();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('referral_accounts');
+        Schema::dropIfExists('contas_indicacoes');
     }
 };

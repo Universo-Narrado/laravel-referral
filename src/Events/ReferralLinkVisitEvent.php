@@ -2,14 +2,14 @@
 
 namespace Famdirksen\LaravelReferral\Events;
 
-use Famdirksen\LaravelReferral\Models\ReferralAccount;
+use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
 
 class ReferralLinkVisitEvent
 {
-    public $referralAccount;
+    public $contasIndicacaoes;
 
-    public function __construct(ReferralAccount $referralAccount)
+    public function __construct(ContasIndicacoes $contasIndicacaoes)
     {
-        $this->referralAccount = $referralAccount;
+        $this->contasIndicacaoes = $contasIndicacaoes;
     }
 }

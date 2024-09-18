@@ -5,7 +5,7 @@ namespace Famdirksen\LaravelReferral\Http\Middleware;
 use Closure;
 use Famdirksen\LaravelReferral\Contracts\ReferralCookieDurationContract;
 use Famdirksen\LaravelReferral\Events\ReferralLinkVisitEvent;
-use Famdirksen\LaravelReferral\Models\ReferralAccount;
+use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
 use Illuminate\Http\Request;
 
 class CheckReferralMiddleware
@@ -24,15 +24,15 @@ class CheckReferralMiddleware
 
         if ($ref = $request->query('r')) {
             // Check if the referral account exists, if not then just return
-            if ( ! ReferralAccount::referralTokenExists($ref)) {
+            if ( ! ContasIndicacoes::referralTokenExists($ref)) {
                 return $next($request);
             }
 
-            $referralAccount = ReferralAccount::byReferralToken($ref);
+            $contasIndicacaoes = ContasIndicacoes::byReferralToken($ref);
 
             if ( ! $request->hasCookie($referralCookieName) || $request->cookie($referralCookieName) !== $ref) {
                 // Register cookie as link-visited
-                event(new ReferralLinkVisitEvent($referralAccount));
+                event(new ReferralLinkVisitEvent($contasIndicacaoes));
             }
 
             // if old cookie and new cookie are the same, do nothing

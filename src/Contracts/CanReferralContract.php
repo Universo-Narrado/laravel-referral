@@ -2,12 +2,12 @@
 
 namespace Famdirksen\LaravelReferral\Contracts;
 
-use Famdirksen\LaravelReferral\Models\ReferralAccount;
+use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 interface CanReferralContract
 {
-    public function makeReferralAccount(string $name): ReferralAccount;
+    public function makeReferralAccount(string $name): ContasIndicacoes;
 
-    public function referralAccounts(): MorphMany;
+    public function contasIndicacoes(): MorphMany;
 }
