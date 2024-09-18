@@ -1,6 +1,6 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Contracts;
+namespace UniversoNarrado\LaravelReferral\Contracts;
 
 interface ReferralCookieDurationContract
 {

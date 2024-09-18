@@ -1,11 +1,11 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Http\Middleware;
+namespace UniversoNarrado\LaravelReferral\Http\Middleware;
 
 use Closure;
-use Famdirksen\LaravelReferral\Contracts\ReferralCookieDurationContract;
-use Famdirksen\LaravelReferral\Events\ReferralLinkVisitEvent;
-use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
+use UniversoNarrado\LaravelReferral\Contracts\ReferralCookieDurationContract;
+use UniversoNarrado\LaravelReferral\Events\ReferralLinkVisitEvent;
+use UniversoNarrado\LaravelReferral\Models\ContasIndicacoes;
 use Illuminate\Http\Request;
 
 class CheckReferralMiddleware

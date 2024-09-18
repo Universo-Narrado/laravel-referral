@@ -1,17 +1,16 @@
 {
-    "name": "famdirksen/laravel-referral",
+    "name": "universo-narrado/laravel-referral",
     "description": "A package for Laravel to register referrals with ease.",
     "keywords": [
-        "famdirksen",
+        "universo-narrado",
         "laravel-referral"
     ],
-    "homepage": "https://github.com/famdirksen/laravel-referral",
+    "homepage": "https://github.com/Universo-Narrado/laravel-referral",
     "license": "MIT",
     "authors": [
         {
-            "name": "Robin Dirksen",
-            "email": "robin@famdirksen.nl",
-            "homepage": "https://robindirksen.com",
+            "name": "Paulo Cesar",
+            "email": "cesar.pc942@gmail.com",
             "role": "Developer"
         }
     ],
@@ -28,18 +27,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Famdirksen\\LaravelReferral\\": "src"
+            "UniversoNarrado\\LaravelReferral\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Famdirksen\\LaravelReferral\\Tests\\": "tests"
+            "UniversoNarrado\\LaravelReferral\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Famdirksen\\LaravelReferral\\LaravelReferralServiceProvider"
+                "UniversoNarrado\\LaravelReferral\\LaravelReferralServiceProvider"
             ]
         }
     },

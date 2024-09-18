@@ -1,8 +1,8 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Duration;
+namespace UniversoNarrado\LaravelReferral\Duration;
 
-use Famdirksen\LaravelReferral\Contracts\ReferralCookieDurationContract;
+use UniversoNarrado\LaravelReferral\Contracts\ReferralCookieDurationContract;
 
 class CookieDurationMonth implements ReferralCookieDurationContract
 {

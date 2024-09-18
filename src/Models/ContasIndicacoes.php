@@ -1,6 +1,6 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Models;
+namespace UniversoNarrado\LaravelReferral\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

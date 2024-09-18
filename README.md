@@ -27,8 +27,8 @@ Add the `CanReferralContract` & `CanReferralTrait` in `App\Models\User`;
 
 namespace App\Models;
 
-use Famdirksen\LaravelReferral\Contracts\CanReferralContract;
-use Famdirksen\LaravelReferral\Traits\CanReferralTrait;
+use UniversoNarrado\LaravelReferral\Contracts\CanReferralContract;
+use UniversoNarrado\LaravelReferral\Traits\CanReferralTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements CanReferralContract
@@ -45,8 +45,8 @@ Add the `HandleReferralContract` & `HandleReferralTrait` in `App\Models\Order`;
 
 namespace App;
 
-use Famdirksen\LaravelReferral\Contracts\HandleReferralContract;
-use Famdirksen\LaravelReferral\Traits\HandleReferralTrait;
+use UniversoNarrado\LaravelReferral\Contracts\HandleReferralContract;
+use UniversoNarrado\LaravelReferral\Traits\HandleReferralTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model implements HandleReferralContract
@@ -73,7 +73,7 @@ class Kernel extends HttpKernel
         'web' => [
             //...
             
-            \Famdirksen\LaravelReferral\Http\Middleware\CheckReferralMiddleware::class,
+            \UniversoNarrado\LaravelReferral\Http\Middleware\CheckReferralMiddleware::class,
             
             //...
         ],
@@ -123,7 +123,7 @@ it will register the referral for the referral account based on the
 | `code_length` | The length in random characters a referral token needs to be. |
 | `clear_cookie_on_referral` | Remove the cookie, so it's handled only once. |
 | `cookie_name` | The name that will be used in the referral cookie registration. |
-| `cookie_duration` | Needs to be an instance of `Famdirksen\LaravelReferral\Contracts\ReferralCookieDurationContract`. |
+| `cookie_duration` | Needs to be an instance of `UniversoNarrado\LaravelReferral\Contracts\ReferralCookieDurationContract`. |
 | `cookie_domains` | Optional, define on which domains a cookie needs to be set. |
 
 ## Testing

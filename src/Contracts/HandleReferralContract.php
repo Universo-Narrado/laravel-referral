@@ -1,9 +1,9 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Contracts;
+namespace UniversoNarrado\LaravelReferral\Contracts;
 
-use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
-use Famdirksen\LaravelReferral\Models\Indicacoes;
+use UniversoNarrado\LaravelReferral\Models\ContasIndicacoes;
+use UniversoNarrado\LaravelReferral\Models\Indicacoes;
 
 interface HandleReferralContract
 {

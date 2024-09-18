@@ -1,6 +1,6 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Tests;
+namespace UniversoNarrado\LaravelReferral\Tests;
 
 use PHPUnit\Framework\TestCase;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Events;
+namespace UniversoNarrado\LaravelReferral\Events;
 
-use Famdirksen\LaravelReferral\Models\ContasIndicacoes;
+use UniversoNarrado\LaravelReferral\Models\ContasIndicacoes;
 
 class ReferralLinkVisitEvent
 {

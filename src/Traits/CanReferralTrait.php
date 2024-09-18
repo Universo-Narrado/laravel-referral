@@ -1,8 +1,8 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Traits;
+namespace UniversoNarrado\LaravelReferral\Traits;
 
-use Famdirksen\LaravelReferral\Models\ReferralAccount;
+use UniversoNarrado\LaravelReferral\Models\ReferralAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 

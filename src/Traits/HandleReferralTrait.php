@@ -1,9 +1,9 @@
 <?php
 
-namespace Famdirksen\LaravelReferral\Traits;
+namespace UniversoNarrado\LaravelReferral\Traits;
 
-use Famdirksen\LaravelReferral\Models\Referral;
-use Famdirksen\LaravelReferral\Models\ReferralAccount;
+use UniversoNarrado\LaravelReferral\Models\Referral;
+use UniversoNarrado\LaravelReferral\Models\ReferralAccount;
 use Illuminate\Support\Facades\Cookie;
 
 trait HandleReferralTrait
