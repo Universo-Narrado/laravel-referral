@@ -34,8 +34,8 @@ class LaravelReferralServiceProvider extends ServiceProvider
         $timestamp = date('Y_m_d_His');
 
         foreach ([
-            'create_referral_accounts_table',
-            'create_referrals_table',
+            'create_contas_indicacoes_table',
+            'create_indicacoes_table',
         ] as $file) {
             $migrationsSource = __DIR__."/../database/migrations/{$file}.php";
             $migrationsTarget = database_path("/migrations/{$timestamp}_{$file}.php");
