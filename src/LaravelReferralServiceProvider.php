@@ -1,6 +1,6 @@
 <?php
 
-namespace Famdirksen\LaravelReferral;
+namespace UniversoNarrado\LaravelReferral;
 
 use Illuminate\Support\ServiceProvider;
 
