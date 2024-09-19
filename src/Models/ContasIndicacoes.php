@@ -20,7 +20,7 @@ class ContasIndicacoes extends Model
     }
 
     // Relations
-    public function referrals()
+    public function indicacaoes()
     {
         return $this->hasMany(Indicacoes::class, 'con_ind_id', 'con_ind_id');
     }

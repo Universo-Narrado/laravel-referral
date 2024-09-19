@@ -2,9 +2,9 @@
 
 namespace UniversoNarrado\LaravelReferral\Traits;
 
-use UniversoNarrado\LaravelReferral\Models\Referral;
-use UniversoNarrado\LaravelReferral\Models\ReferralAccount;
 use Illuminate\Support\Facades\Cookie;
+use UniversoNarrado\LaravelReferral\Models\ContasIndicacoes;
+use UniversoNarrado\LaravelReferral\Models\Indicacoes;
 
 trait HandleReferralTrait
 {
@@ -24,9 +24,9 @@ trait HandleReferralTrait
 
         if ($referredToken = Cookie::get($referralCookieName)) {
             // Check if the referral account still exists
-            if ($referralAccount = ReferralAccount::byReferralToken($referredToken)) {
+            if ($contasIndicacoes = ContasIndicacoes::byReferralToken($referredToken)) {
                 // Register the model for the referralToken
-                $this->toReferral($referralAccount);
+                $this->toReferral($contasIndicacoes);
 
                 if (config('referral.clear_cookie_on_referral', false)) {
                     Cookie::queue(Cookie::forget($referralCookieName));
@@ -35,17 +35,17 @@ trait HandleReferralTrait
         }
     }
 
-    public function toReferral(ReferralAccount $referralAccount): Referral
+    public function toReferral(ContasIndicacoes $contasIndicacoes): Indicacoes
     {
         //todo - register only once per referral_account
-        $referral = new Referral;
+        $indicacao = new Indicacoes;
 
-        $referral->referralable_type = get_class($this);
-        $referral->referralable_id = $this->getKey();
-        $referral->referral_account_id = $referralAccount->id;
+        $indicacao->ind_tipo_type = get_class($this);
+        $indicacao->ind_tipo_id = $this->getKey();
+        $indicacao->con_ind_id = $contasIndicacoes->con_ind_id;
 
-        $referral->save();
+        $indicacao->save();
 
-        return $referral;
+        return $indicacao;
     }
 }

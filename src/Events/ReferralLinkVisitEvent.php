@@ -6,10 +6,10 @@ use UniversoNarrado\LaravelReferral\Models\ContasIndicacoes;
 
 class ReferralLinkVisitEvent
 {
-    public $contasIndicacaoes;
+    public $contasIndicacoes;
 
-    public function __construct(ContasIndicacoes $contasIndicacaoes)
+    public function __construct(ContasIndicacoes $contasIndicacoes)
     {
-        $this->contasIndicacaoes = $contasIndicacaoes;
+        $this->contasIndicacoes = $contasIndicacoes;
     }
 }

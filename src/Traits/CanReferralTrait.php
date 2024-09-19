@@ -2,31 +2,30 @@
 
 namespace UniversoNarrado\LaravelReferral\Traits;
 
-use UniversoNarrado\LaravelReferral\Models\ReferralAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use UniversoNarrado\LaravelReferral\Models\ContasIndicacoes;
 
 trait CanReferralTrait
 {
-    public function makeReferralAccount(string $name): ReferralAccount
+    public function makeReferralAccount(string $name): ContasIndicacoes
     {
         /** @var Model $this */
 
-        $referralAccount = new ReferralAccount;
+        $contasIndicacoes = new ContasIndicacoes;
 
-        $referralAccount->referralable_type = get_class($this);
-        $referralAccount->referralable_id = $this->getKey();
-        $referralAccount->name = $name;
+        $contasIndicacoes->con_ind_morph_type = get_class($this);
+        $contasIndicacoes->con_ind_morph_id = $this->getKey();
+        $contasIndicacoes->con_ind_nome = $name;
 
-        $referralAccount->save();
+        $contasIndicacoes->save();
 
-        return $referralAccount;
+        return $contasIndicacoes;
     }
 
-    public function referralAccounts(): MorphMany
+    public function contasIndicacoes(): MorphMany
     {
-        return $this->morphMany(ReferralAccount::class, 'referralable');
+        return $this->morphMany(ContasIndicacoes::class, 'con_ind_morph');
     }
 
-    //todo - hasManyThrough relation to the referrals
 }

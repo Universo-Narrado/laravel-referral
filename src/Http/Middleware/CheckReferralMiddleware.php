@@ -28,11 +28,11 @@ class CheckReferralMiddleware
                 return $next($request);
             }
 
-            $contasIndicacaoes = ContasIndicacoes::byReferralToken($ref);
+            $contasIndicacoes = ContasIndicacoes::byReferralToken($ref);
 
             if ( ! $request->hasCookie($referralCookieName) || $request->cookie($referralCookieName) !== $ref) {
                 // Register cookie as link-visited
-                event(new ReferralLinkVisitEvent($contasIndicacaoes));
+                event(new ReferralLinkVisitEvent($contasIndicacoes));
             }
 
             // if old cookie and new cookie are the same, do nothing
