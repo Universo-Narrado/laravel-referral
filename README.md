@@ -4,7 +4,6 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/famdirksen/laravel-referral/Tests?label=tests)](https://github.com/famdirksen/laravel-referral/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/famdirksen/laravel-referral.svg?style=flat-square)](https://packagist.org/packages/famdirksen/laravel-referral)
 
-
 With this package you can easily register referrals for your users/models.
 
 ![Package info](https://banners.beyondco.de/Laravel%20Referral.png?theme=light&packageManager=composer+require&packageName=famdirksen%2Flaravel-referral&pattern=architect&style=style_1&description=Register+referrals+in+your+application+with+ease.&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
@@ -22,6 +21,7 @@ composer require famdirksen/laravel-referral
 This example shows an users (`App\Models\User`) who can have multiple `referralAccounts`. Based on orders (`App\Models\Order`) made in the system it will register the referral for the referral account.
 
 Add the `CanReferralContract` & `CanReferralTrait` in `App\Models\User`;
+
 ```php
 <?php
 
@@ -34,12 +34,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements CanReferralContract
 {
     use CanReferralTrait;
-    
+
     //...
 }
 ```
 
 Add the `HandleReferralContract` & `HandleReferralTrait` in `App\Models\Order`;
+
 ```php
 <?php
 
@@ -52,7 +53,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model implements HandleReferralContract
 {
     use HandleReferralTrait;
-    
+
     //...
 }
 ```
@@ -60,6 +61,7 @@ class Order extends Model implements HandleReferralContract
 Last, you need to register the middleware that's keeping track of the referrals.
 
 Add the `CheckReferralMiddleware` to `App\Http\Kernel`:
+
 ```php
 <?php
 
@@ -72,19 +74,21 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'web' => [
             //...
-            
+
             \UniversoNarrado\LaravelReferral\Http\Middleware\CheckReferralMiddleware::class,
-            
+
             //...
         ],
     ];
-    
+
     //...
 }
 ```
- ## Usage
 
-- Create a referral account for the user
+## Usage
+
+-   Create a referral account for the user
+
 ```php
 $user = auth()->user();
 
@@ -93,38 +97,38 @@ $user = auth()->user();
 $user->makeReferralAccount('default');
 ```
 
-- Get all referral accounts, referral link, and referrals for a referral account
+-   Get all referral accounts, referral link, and referrals for a referral account
+
 ```php
 $user = auth()->user();
 
 // get all referralAccounts for the current authenticated user
-$referralAccounts = $user->referralAccounts;
+$contasIndicacoes = $user->contasIndicacoes
 
 // get the default referral account
-$defaultReferralAccount = $referralAccounts->first();
+$defaultReferralAccount = $contasIndicacoes->first()
 
 // get the referral link for the default referral account
-$referralLink = $defaultReferralAccount->getReferralLink();
+$referralLink = $defaultReferralAccount->getReferralLink()
 
 // get all referrals for a referral account
-$referrals = $defaultReferralAccount->referrals->get();
+$referrals = $defaultReferralAccount->indicacaoes;
 ```
 
-- When `Order` model hits the `created` event, 
-it will register the referral for the referral account based on the 
-`referral` cookie.
-
+-   When `Order` model hits the `created` event,
+    it will register the referral for the referral account based on the
+    `referral` cookie.
 
 ## Configuration
 
-| Key | Description |
-|---|---|
-| `overwrite_previous_referral` | When a user is redirected multiple times, overwrite the previous referral. |
-| `code_length` | The length in random characters a referral token needs to be. |
-| `clear_cookie_on_referral` | Remove the cookie, so it's handled only once. |
-| `cookie_name` | The name that will be used in the referral cookie registration. |
-| `cookie_duration` | Needs to be an instance of `UniversoNarrado\LaravelReferral\Contracts\ReferralCookieDurationContract`. |
-| `cookie_domains` | Optional, define on which domains a cookie needs to be set. |
+| Key                           | Description                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `overwrite_previous_referral` | When a user is redirected multiple times, overwrite the previous referral.                             |
+| `code_length`                 | The length in random characters a referral token needs to be.                                          |
+| `clear_cookie_on_referral`    | Remove the cookie, so it's handled only once.                                                          |
+| `cookie_name`                 | The name that will be used in the referral cookie registration.                                        |
+| `cookie_duration`             | Needs to be an instance of `UniversoNarrado\LaravelReferral\Contracts\ReferralCookieDurationContract`. |
+| `cookie_domains`              | Optional, define on which domains a cookie needs to be set.                                            |
 
 ## Testing
 
@@ -146,8 +150,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Robin Dirksen](https://github.com/robindirksen1)
-- [All Contributors](../../contributors)
+-   [Robin Dirksen](https://github.com/robindirksen1)
+-   [All Contributors](../../contributors)
 
 ## License
 
