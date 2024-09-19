@@ -47,7 +47,15 @@
         "psalm": "vendor/bin/psalm",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "post-install-cmd": [
+            "@php artisan vendor:publish --provider='UniversoNarrado\\LaravelReferral\\LaravelReferralServiceProvider' --tag=config",
+            "@php artisan vendor:publish --provider='UniversoNarrado\\LaravelReferral\\LaravelReferralServiceProvider' --tag=migrations"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --provider='UniversoNarrado\\LaravelReferral\\LaravelReferralServiceProvider' --tag=config",
+            "@php artisan vendor:publish --provider='UniversoNarrado\\LaravelReferral\\LaravelReferralServiceProvider' --tag=migrations"
+        ]
     },
     "config": {
         "sort-packages": true
