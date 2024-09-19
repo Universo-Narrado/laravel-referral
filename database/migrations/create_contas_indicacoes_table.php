@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contas_indicacoes', function (Blueprint $table) {
             $table->bigIncrements('con_ind_id');
-            $table->morphs('con_ind');
+            $table->morphs('con_ind_morph');
             $table->string('con_ind_nome');
             $table->string('con_ind_codigo')->unique()->index();
             $table->timestamps();
